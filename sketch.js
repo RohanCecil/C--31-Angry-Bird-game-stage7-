@@ -1,3 +1,38 @@
+
+
+var string="i am a string ";
+console.log(string);
+
+var num =20;
+console.log(num);
+
+var bool=true;
+console.log(bool);
+
+var object;
+console.log(object);
+
+object=null;
+console.log(object);
+
+var arr =[20,30,40,50];
+console.log(arr[2]);
+
+var arr1=[20,"rohan",true,null,undefined];
+console.log(arr1[1]);
+
+var arr2=[arr1,[2,3,4],arr,[20,"the great",0]];
+console.log(arr2[3][1])
+
+arr2.push("Aanchal");
+console.log(arr2);
+
+arr2.pop();
+console.log(arr2);
+
+var gameState="onSling";
+
+
 const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
@@ -69,16 +104,19 @@ function draw(){
 }
 
 function mouseDragged(){
+    if(gameState!=="launched"){
     Matter.Body.setPosition(bird.body, {x: mouseX , y: mouseY});
+    }
 }
 
 
 function mouseReleased(){
+   gameState="launched";
     slingshot.fly();
 }
 
 function keyPressed(){
     if(keyCode === 32){
-        slingshot.attach(bird.body);
+        //slingshot.attach(bird.body);
     }
 }
